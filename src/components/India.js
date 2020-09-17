@@ -3,7 +3,7 @@ import axios from "axios"
 import Pagination from "./Pagination"
 import News from "./News"
 
-const India = () => {
+const India = (props) => {
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
@@ -12,7 +12,7 @@ const India = () => {
     useEffect(() => {
         const getPosts = async () => {
             setLoading(true)
-            const results = await axios.get("https://newsapi.org/v2/top-headlines?country=in&apiKey=028a318abd9e4364b0a32f66b822287b&pageSize=100", { crossdomain: true });
+            const results = await axios.get(props.url, { crossdomain: true });
             setPosts(results.data.articles)
             setLoading(false)
         };

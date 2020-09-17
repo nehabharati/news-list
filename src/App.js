@@ -11,9 +11,9 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route path="/tab1" exact component={America} />
-        <Route path="/tab2" exact component={India} />
-        <Route path="/tab3" exact component={Canada} />
+        <Route path="/tab1" render={props => <America {...props} url={"https://newsapi.org/v2/top-headlines?country=us&apiKey=028a318abd9e4364b0a32f66b822287b&pageSize=100"} />} />
+        <Route path="/tab2" render={props => <India {...props} url={"https://newsapi.org/v2/top-headlines?country=in&apiKey=028a318abd9e4364b0a32f66b822287b&pageSize=100"} />} />
+        <Route path="/tab3" render={props => <Canada {...props} url={"https://newsapi.org/v2/top-headlines?country=ca&apiKey=028a318abd9e4364b0a32f66b822287b&pageSize=100"} />} />
       </Switch>
     </Router>
   )
