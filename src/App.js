@@ -1,30 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import Content from "./components/Content"
-import { Tab, Tabs } from "react-bootstrap"
+import America from "./components/America"
+import India from "./components/India"
+import Canada from "./components/Canada"
+import Navbar from "./components/Navbar"
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 function App() {
-  const [activeTab, setActiveTab] = useState(1)
-
-  function handleSelect(selectedTab) {
-    setActiveTab(selectedTab)
-    console.log(selectedTab)
-  }
-
   return (
     <Router>
+      <Navbar />
       <Switch>
-        <Tabs activeKey={activeTab} onSelect={handleSelect} style={{ backgroundColor: "none" }}>
-          <Tab eventKey={1} title="US"><Route path="/" exact render={props => <Content {...props} url={"https://newsapi.org/v2/top-headlines?country=us&apiKey=028a318abd9e4364b0a32f66b822287b&pageSize=100"} title={"Top news in the US"} />} /></Tab>
-          <Tab eventKey={2} title="India"><Route path="/" render={props => <Content {...props} url={"https://newsapi.org/v2/top-headlines?country=in&apiKey=028a318abd9e4364b0a32f66b822287b&pageSize=100"} title={"Top news in India"} />} /></Tab>
-          <Tab eventKey={3} title="Canada"><Route path="/" exact render={props => <Content {...props} url={"https://newsapi.org/v2/top-headlines?country=ca&apiKey=028a318abd9e4364b0a32f66b822287b&pageSize=100"} title={"Top news in Canada"} />} /></Tab>
-        </Tabs>
+        <Route path="/tab1" exact component={America} />
+        <Route path="/tab2" exact component={India} />
+        <Route path="/tab3" exact component={Canada} />
       </Switch>
     </Router>
   )
-
 }
-
 
 export default App;
