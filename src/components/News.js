@@ -62,12 +62,17 @@ const News = React.memo((props) => {
                         {(post.urlToImage === null) ? (<Card.Img variant="top" src={image} className="image" />) : (<Card.Img variant="top" src={post.urlToImage} className="image" />)}
                         <Card.Body>
                             <Card.Title>{post.title}</Card.Title>
-                            <Card.Text>
+                            {post.author === null ? (<Card.Text>
+                                Author: NA
+                            </Card.Text>) : (<Card.Text>
                                 Author: {post.author}
-                            </Card.Text>
-                            <Card.Text>
+                            </Card.Text>)}
+
+                            {post.publishedAt === null ? (<Card.Text>
+                                Published at: NA
+                            </Card.Text>) : (<Card.Text>
                                 Published at: {post.publishedAt.slice(0, 10)}
-                            </Card.Text>
+                            </Card.Text>)}
                         </Card.Body>
                         <Card.Body className="links">
                             <a href={post.url} target="_blank">See article</a>
@@ -93,12 +98,16 @@ const News = React.memo((props) => {
                             {(post.urlToImage === null) ? (<Card.Img variant="top" src={image} className="image" style={{ width: "100%", height: "400px", objectFit: "cover" }} />) : (<Card.Img variant="top" src={post.urlToImage} className="image" />)}
                             <Card.Body>
                                 <Card.Title>{post.title}</Card.Title>
-                                <Card.Text>
+                                {post.author === null ? (<Card.Text>
+                                    Author: NA
+                                </Card.Text>) : (<Card.Text>
                                     Author: {post.author}
-                                </Card.Text>
-                                <Card.Text>
+                                </Card.Text>)}
+                                {post.publishedAt === null ? (<Card.Text>
+                                    Published at: NA
+                                </Card.Text>) : (<Card.Text>
                                     Published at: {post.publishedAt.slice(0, 10)}
-                                </Card.Text>
+                                </Card.Text>)}
                             </Card.Body>
                             <Card.Body className="links">
                                 <a href={post.url} target="_blank">See article</a>
@@ -118,7 +127,7 @@ const News = React.memo((props) => {
                         </Card>
                     )
             ))}
-        </div>
+        </div >
     )
 
 })
