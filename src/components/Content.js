@@ -13,7 +13,7 @@ const Content = (props) => {
     useEffect(() => {
         const getPosts = async () => {
             setLoading(true)
-            const results = await axios.get(props.url);
+            const results = await axios.get(props.url, { crossdomain: true });
             setPosts(results.data.articles)
             setLoading(false)
         };

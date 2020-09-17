@@ -70,7 +70,7 @@ const News = React.memo((props) => {
                             </Card.Text>
                         </Card.Body>
                         <Card.Body className="links">
-                            <a href={post.url}>See article</a>
+                            <a href={post.url} target="_blank">See article</a>
                             <input type="radio" className="like" id={post.url} onClick={() => handleToggle(post.url)} />
                             {showLike && likeUrl === post.url ? (
                                 <label htmlFor={post.url}>
@@ -101,7 +101,7 @@ const News = React.memo((props) => {
                                 </Card.Text>
                             </Card.Body>
                             <Card.Body className="links">
-                                <a href={post.url}>See article</a>
+                                <a href={post.url} target="_blank">See article</a>
                                 <input type="radio" className="like" id={post.url} onClick={() => handleToggle(post.url)} />
                                 {showLike && likeUrl === post.url ? (
                                     <label htmlFor={post.url}>
